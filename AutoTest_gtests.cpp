@@ -139,6 +139,51 @@ TEST(BSTTest, SearchNotFound)
     ASSERT_FALSE(bststring.search("foo"));
 }
 
+TEST(BSTTest, SearchFoundAndNotFound)
+{
+    BST<int> bstint;
+    BST<std::string> bststring;
+
+    bstint.insert(5);
+    bstint.insert(3);
+    bstint.insert(7);
+    bstint.insert(2);
+    bstint.insert(4);
+    bstint.insert(6);
+    bstint.insert(8);
+    ASSERT_TRUE(bstint.search(5));
+    ASSERT_TRUE(bstint.search(8));
+    ASSERT_TRUE(bstint.search(2));
+
+    bststring.insert("hello");
+    bststring.insert("world");
+    bststring.insert("foo");
+    bststring.insert("bar");
+    ASSERT_TRUE(bststring.search("hello"));
+    ASSERT_TRUE(bststring.search("world"));
+    ASSERT_TRUE(bststring.search("bar"));
+    ASSERT_TRUE(bststring.search("world"));
+
+    BST<int> bstint2;
+    BST<std::string> bststring2;
+
+    bstint2.insert(5);
+    bstint2.insert(3);
+    bstint2.insert(7);
+    bstint2.insert(2);
+    bstint2.insert(4);
+    bstint2.insert(6);
+    bstint2.insert(8);
+    ASSERT_FALSE(bstint2.search(9));
+    ASSERT_FALSE(bstint2.search(1));
+
+    bststring2.insert("hello");
+    bststring2.insert("world");
+    bststring2.insert("bar");
+    ASSERT_FALSE(bststring2.search("foo"));
+
+}
+
 
 TEST(BSTTest, Insert)
 {
