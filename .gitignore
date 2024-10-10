@@ -3,12 +3,21 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-# VS Code ignores
-.vscode
-*.dSYM*
-build
+# Visual Studio Code (Windows)
 .DS_Store
+*.exe
+*.ilk
+*.obj
+*.pdb
+*.dSYM*
+*.sln
+*.vcxproj*
+x64
+.vs*
 ~$*
+
+# Build files
+build
 
 # generated executables
 main
