@@ -9,29 +9,34 @@ cd $repo
 echo
 echo "#################### START: AutoTest Results #####################"
 echo "--- Checking code format (cpplint) ---"
-./AutoTest_Style.sh
+./AutoTest_Style.sh $repo main.cpp BST.h
 echo
 echo "--- Checking main output (diff) ---"
 cd build
 # Output test disabled for now
 # ../AutoTest_OutputTest.sh
-# echo
-# echo "--- Unit testing (googletest - all tests at once) ---"
-# ctest
-# echo
+echo
+echo "--- Unit testing (googletest - all tests at once) ---"
+ctest
+echo
+# GitHub Classroom auto-grading runs the following commands from the current
+# directory of the project being tested.  To similate that here, we need to
+# change to the project directory before running the tests.
+#
+cd ../..
+# Note: The following commands should be exactly the same as specified in classroom.yml
 echo "--- Unit testing (single test at a time) ---"
-./AutoTest_gtests --gtest_filter=BSTTest.Empty
-./AutoTest_gtests --gtest_filter=BSTTest.Search
-./AutoTest_gtests --gtest_filter=BSTTest.SearchNotFound
-./AutoTest_gtests --gtest_filter=BSTTest.Insert
-./AutoTest_gtests --gtest_filter=BSTTest.Delete
-./AutoTest_gtests --gtest_filter=BSTTest.Inorder
-./AutoTest_gtests --gtest_filter=BSTTest.Preorder
-./AutoTest_gtests --gtest_filter=BSTTest.Postorder
-./AutoTest_gtests --gtest_filter=BSTTest.RemoveException
-./AutoTest_gtests --gtest_filter=BSTTest.InsertException
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.Empty
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.Search
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.SearchNotFound
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.Insert
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.Remove
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.Inorder
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.Preorder
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.Postorder
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.RemoveException
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.InsertException
 
 echo
-cd ..
 echo "#################### END: AutoTest Results   #####################"
 echo

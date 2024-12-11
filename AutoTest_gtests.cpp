@@ -198,7 +198,7 @@ TEST(BSTTest, Insert)
 }
 
 
-TEST(BSTTest, Delete)
+TEST(BSTTest, Remove)
 {
     BST<int> bstint;
     BST<std::string> bststring;
