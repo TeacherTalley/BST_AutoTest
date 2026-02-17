@@ -36,6 +36,12 @@ echo "--- Unit testing (single test at a time) ---"
 ./BST_AutoTest/AutoTest_gtest.sh BSTTest.Postorder
 ./BST_AutoTest/AutoTest_gtest.sh BSTTest.RemoveException
 ./BST_AutoTest/AutoTest_gtest.sh BSTTest.InsertException
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.FindMinInt
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.FindMaxInt
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.FindMinString
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.FindMaxString
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.FindMinEmpty
+./BST_AutoTest/AutoTest_gtest.sh BSTTest.FindMaxEmpty
 
 echo
 echo "#################### END: AutoTest Results   #####################"

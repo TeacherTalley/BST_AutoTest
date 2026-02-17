@@ -309,6 +309,80 @@ TEST(BSTTest, Postorder)
     EXPECT_EQ(trim_copy(output), "bar foo world hello");
 }
 
+TEST(BSTTest, FindMinInt)
+{
+    BST<int> bstint;
+
+    bstint.insert(5);
+    bstint.insert(3);
+    bstint.insert(7);
+    bstint.insert(2);
+    bstint.insert(4);
+    bstint.insert(6);
+    bstint.insert(8);
+
+    EXPECT_EQ(bstint.findMin(), 2);
+
+    bstint.remove(2);
+    EXPECT_EQ(bstint.findMin(), 3);
+}
+
+TEST(BSTTest, FindMaxInt)
+{
+    BST<int> bstint;
+
+    bstint.insert(5);
+    bstint.insert(3);
+    bstint.insert(7);
+    bstint.insert(2);
+    bstint.insert(4);
+    bstint.insert(6);
+    bstint.insert(8);
+
+    EXPECT_EQ(bstint.findMax(), 8);
+
+    bstint.remove(8);
+    EXPECT_EQ(bstint.findMax(), 7);
+}
+
+TEST(BSTTest, FindMinString)
+{
+    BST<std::string> bststring;
+
+    bststring.insert("hello");
+    bststring.insert("world");
+    bststring.insert("foo");
+    bststring.insert("bar");
+
+    EXPECT_EQ(bststring.findMin(), "bar");
+}
+
+TEST(BSTTest, FindMaxString)
+{
+    BST<std::string> bststring;
+
+    bststring.insert("hello");
+    bststring.insert("world");
+    bststring.insert("foo");
+    bststring.insert("bar");
+
+    EXPECT_EQ(bststring.findMax(), "world");
+}
+
+TEST(BSTTest, FindMinEmpty)
+{
+    BST<int> bstint;
+
+    ASSERT_THROW(bstint.findMin(), std::runtime_error);
+}
+
+TEST(BSTTest, FindMaxEmpty)
+{
+    BST<int> bstint;
+
+    ASSERT_THROW(bstint.findMax(), std::runtime_error);
+}
+
 
 TEST(BSTTest, RemoveException)
 {
@@ -346,3 +420,4 @@ TEST(BSTTest, InsertException)
     ASSERT_NO_THROW(bststring.insert("bar"));
     ASSERT_THROW(bststring.insert("foo"), std::runtime_error);
 }
+
